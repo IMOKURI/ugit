@@ -49,4 +49,4 @@ def cat_file(args):
 
 
 def write_tree(args):
-    base.write_tree()
+    print(base.write_tree())
