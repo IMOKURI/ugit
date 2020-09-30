@@ -10,13 +10,16 @@ def init():
 
 
 def update_ref(ref, oid):
-    with open(f"{GIT_DIR}/{ref}", "w") as f:
+    rel_path = f"{GIT_DIR}/{ref}"
+    os.makedirs(os.path.dirname(rel_path), exist_ok=True)
+    with open(rel_path, "w") as f:
         f.write(oid)
 
 
 def get_ref(ref):
-    if os.path.isfile(f"{GIT_DIR}/{ref}"):
-        with open(f"{GIT_DIR}/{ref}") as f:
+    rel_path = f"{GIT_DIR}/{ref}"
+    if os.path.isfile(rel_path):
+        with open(rel_path) as f:
             return f.read().strip()
     return False
 
