@@ -1,2 +1,4 @@
+.ugit/
+
 __pycache__
 *.egg-info/
